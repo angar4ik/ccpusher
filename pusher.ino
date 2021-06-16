@@ -47,12 +47,18 @@ void recvWithEndMarker() {
 
 void showNewNumber() {
     if (newData == true) {
+      if(String(receivedChars).indexOf("INFO") != -1) {
+        Serial.println("CC Pusher v1.0");
+        newData = false;
+      }
+      else {
         dataNumber = 0;             // new for this version
         dataNumber = atoi(receivedChars);   // new for this version
         if (dataNumber <= 180 && !(dataNumber < 90)) { setAngle(dataNumber); }
         else { Serial.println("NaN or OoR"); }
         newData = false;
-    }
+      }
+   }
 }
 
 void setAngle(int angle){
