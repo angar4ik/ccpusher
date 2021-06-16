@@ -7,7 +7,7 @@ int pos = 0;    // variable to store the servo position
 void setup() {
   Serial.begin(9600);
   Serial.println("<Arduino is ready>");
-  myservo.attach(14);  // attaches the servo on pin 9 to the servo object
+  myservo.attach(2);  // attaches the servo on pin 9 to the servo object
   myservo.write(90);
 }
 
@@ -54,7 +54,7 @@ void showNewNumber() {
       else {
         dataNumber = 0;             // new for this version
         dataNumber = atoi(receivedChars);   // new for this version
-        if (dataNumber <= 180 && !(dataNumber < 90)) { setAngle(dataNumber); }
+        if (dataNumber <= 180 && !(dataNumber < 90)) { setAngle(dataNumber); Serial.println(dataNumber); }
         else { Serial.println("NaN or OoR"); }
         newData = false;
       }
