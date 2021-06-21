@@ -7,7 +7,7 @@ int pos = 0;    // variable to store the servo position
 void setup() {
   Serial.begin(9600);
   Serial.println("<Arduino is ready>");
-  myservo.attach(2);  // attaches the servo on pin 9 to the servo object
+  myservo.attach(2);  // attaches the servo on pin 2 to the servo object
   myservo.write(90);
 }
 
